@@ -28,7 +28,7 @@ while True:
             print("Exiting program. Bye!")
             break
 
-        marks_input = input("Enter Marks / Max marks (e.g. 85/100): ").strip()
+        marks_input = input("Enter Marks/Max marks (e.g. 85/100): ").strip()
         marks1 = marks_input.split("/")
         
         if len(marks1) != 2:
