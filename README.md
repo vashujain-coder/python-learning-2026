@@ -4,7 +4,7 @@ My journey in Python programming, automation scripts, and prep for cybersecurity
 All projects here are for learning + building a freelancing portfolio.
 
 ## Projects
-- **Student Grading System using OOP**  
+- **Student Grading Calculator (using OOP)**  
   A simple console-based grade calculator using Python classes.  
   Features:  
   - OOP with `Student` class  
@@ -16,5 +16,5 @@ All projects here are for learning + building a freelancing portfolio.
 
 ## How to Run
 ```bash
-python Student_Grading_System_using_OOP.py
+python studen-grading-calculator.py
 Enter student name and marks/max_marks (e.g., 85/100). Type 'quit' to exit.More projects coming soon (Excel automation, web scraping, basic cyber tools)!
