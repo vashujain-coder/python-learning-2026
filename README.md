@@ -16,5 +16,5 @@ All projects here are for learning + building a freelancing portfolio.
 
 ## How to Run
 ```bash
-python studen-grading-calculator.py
+python student-grading-calculator.py
 Enter student name and marks/max_marks (e.g., 85/100). Type 'quit' to exit.More projects coming soon (Excel automation, web scraping, basic cyber tools)!
