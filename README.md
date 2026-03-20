@@ -45,8 +45,4 @@ Example output:
 textVashu: Grade A (92.00%)
 Type 'quit' as the name to exit the program.
 ```
-More projects coming soon:
-
--Excel automation with openpyxl 
--Basic web scraping (ethical/learning only)
--Simple cybersecurity-related scripts
+More projects coming soon (Excel automation, web scraping, basic cyber tools)!
