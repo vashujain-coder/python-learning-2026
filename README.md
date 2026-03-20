@@ -13,8 +13,10 @@ All projects here are for learning + building a freelancing portfolio.
   - Loop to add multiple students  
   - Clean f-string output with percentage  
   <img src="student-grade-output.png" alt="Program Output">
-
+  student-grading-calculator.py
 ## How to Run
 ```bash
 python student-grading-calculator.py
-Enter student name and marks/max_marks (e.g., 85/100). Type 'quit' to exit.More projects coming soon (Excel automation, web scraping, basic cyber tools)!
+Enter student name and marks/max_marks (e.g., 85/100). Type 'quit' to exit.
+
+More projects coming soon (Excel automation, web scraping, basic cyber tools)!
