@@ -47,6 +47,6 @@ Type 'quit' as the name to exit the program.
 ```
 More projects coming soon:
 
-Excel automation with openpyxl
-Basic web scraping (ethical/learning only)
-Simple cybersecurity-related scripts
+-Excel automation with openpyxl 
+-Basic web scraping (ethical/learning only)
+-Simple cybersecurity-related scripts
