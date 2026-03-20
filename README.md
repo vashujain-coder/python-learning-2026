@@ -12,7 +12,7 @@ All projects here are for learning + building a freelancing portfolio.
   - Input validation & error handling (no negative marks, marks > max, etc.)  
   - Loop to add multiple students  
   - Clean f-string output with percentage  
-  <img width="1919" height="1079" alt="Screenshot 2026-03-20 085907" src="https://github.com/user-attachments/assets/b057fe65-83f3-45a8-ad5b-ef566ed72440" />
+  <img src="student-grade-output.png" alt="Program Output">
 
 ## How to Run
 ```bash
