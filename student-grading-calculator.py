@@ -32,7 +32,7 @@ while True:
         marks1 = marks_input.split("/")
         
         if len(marks1) != 2:
-            raise ValueError("Please enter in format: marks/max_marks (like 85/100)")
+            raise ValueError("Please enter in format: Marks/Max marks (like 85/100)")
 
         marks = int(marks1[0].strip())
         max_marks = int(marks1[1].strip())
