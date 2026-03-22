@@ -15,7 +15,7 @@ All projects here are for skill-building + creating a real portfolio.
   - Interactive loop for multiple students  
   - Clean formatted output with percentage  
 
-  ![Program Output Screenshot](https://github.com/user-attachments/assets/b057fe65-83f3-45a8-ad5b-ef566ed72440)  
+  ![Program Output Screenshot](student-grading-calculator-output.png)  
   *(Example run showing grade calculation)*
 
   View code: [student-grading-calculator.py](./student-grading-calculator.py)
