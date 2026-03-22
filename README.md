@@ -34,15 +34,7 @@ Enter Name of the Student (or 'quit' to exit): Vashu
 Enter Marks / Max marks (e.g. 85/100): 92/100
 
 Example output:  
-textVashu: Grade A (92.00%)
-Type 'quit' as the name to exit the program.```
-Example usage:
-
-Enter Name of the Student (or 'quit' to exit): Vashu
-Enter Marks / Max marks (e.g. 85/100): 92/100
-
-Example output:
-textVashu: Grade A (92.00%)
+Vashu: Grade A (92.00%)
 Type 'quit' as the name to exit the program.
 ```
 More projects coming soon (Excel automation, web scraping, basic cyber tools)!
