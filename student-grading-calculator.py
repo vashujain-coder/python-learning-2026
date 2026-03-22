@@ -9,15 +9,15 @@ class Student:
         percentage = (self.marks / self.max_marks) * 100
         
         if percentage > 90:
-            print(f"{self.name}: Grade A ({percentage:.2f}%)")
+            print(f"{self.name}: Grade A ({percentage:.2f}%)\n")
         elif percentage > 80:
-            print(f"{self.name}: Grade B ({percentage:.2f}%)")
+            print(f"{self.name}: Grade B ({percentage:.2f}%)\n")
         elif percentage > 70:
-            print(f"{self.name}: Grade C ({percentage:.2f}%)")
+            print(f"{self.name}: Grade C ({percentage:.2f}%)\n")
         elif percentage > 40:
-            print(f"{self.name}: Grade D ({percentage:.2f}%)")
+            print(f"{self.name}: Grade D ({percentage:.2f}%)\n")
         else:
-            print(f"{self.name}: Fail! ({percentage:.2f}%)")
+            print(f"{self.name}: Fail! ({percentage:.2f}%)\n")
 
 
 # Main loop
@@ -25,7 +25,7 @@ while True:
     try:
         name1 = input("Enter Name of the Student (or 'quit' to exit): ").strip()
         if name1.lower() == 'quit':
-            print("Exiting program. Bye!")
+            print("Exiting program. Bye!\n")
             break
 
         marks_input = input("Enter Marks/Max marks (e.g. 85/100): ").strip()
