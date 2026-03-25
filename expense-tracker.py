@@ -93,6 +93,7 @@ class ExpenseManager:
         print("="*80)
 
     def category_wise_summary(self):
+        """Show spending by category (highest first)"""
         if not self.expenses:
             print("No expenses yet!")
             return
