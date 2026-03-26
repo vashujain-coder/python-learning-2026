@@ -10,7 +10,7 @@ class Expense:
         self.category = category.title().strip()
         self.description = description.strip()
         self.amount = round(float(amount), 2)
-        self.date = date if date else datetime.now().strftime("%d/%m/%Y")
+        self.date = date if date else datetime.now().strftime("%Y-%m-%d")
 
     def to_dict(self):
         return {
@@ -148,16 +148,16 @@ class ExpenseManager:
         print("="*50)
 
     def monthly_summary(self):
-
+        """Show spending summary by month"""
         if not self.expenses:
             print("No expenses yet!")
-            return 
-        
+            return
+
         monthly = defaultdict(float)
         total = 0.0
 
         for expense in self.expenses:
-            month_key = expense.date[2:]
+            month_key = expense.date[:7]
             monthly[month_key] += expense.amount
             total += expense.amount
 
@@ -166,13 +166,14 @@ class ExpenseManager:
 
         for month_key in sorted(monthly.keys(), reverse=True):
             amount = monthly[month_key]
-            month, year = month_key.split('/')
+            year, month = month_key.split('-')
             month_name = datetime.strptime(month, "%m").strftime("%B")
             print(f"{month_name} {year:<6} : ₹{amount:.2f}")
 
         print("="*50)
         print(f"{'GRAND TOTAL':<18} : ₹{total:.2f}")
         print("="*50)
+
 
 class UserInterface:
     """Handles user menu and interaction"""
@@ -186,10 +187,10 @@ class UserInterface:
         while True:
             print("=" * 50)
             print("1. Add Expense")
-            print("2. Delete Expense")
-            print("3. View All Expenses")
-            print("4. Category Wise Summary")
-            print("5. Monthly Summary")
+            print("2. View All Expenses")
+            print("3. Category Wise Summary")
+            print("4. Monthly Summary")
+            print("5. Delete Expense")
             print("6. Exit")
             print("=" * 50)
 
@@ -197,14 +198,14 @@ class UserInterface:
 
             if choice in ["1", "add"]:
                 self.manager.add_expense()
-            elif choice in ["2", "delete"]:
-                self.manager.delete_expense()
-            elif choice in ["3", "view"]:
+            elif choice in ["2", "view"]:
                 self.manager.view_all_expenses()
-            elif choice in ["4","category"]:
+            elif choice in ["3"]:
                 self.manager.category_wise_summary()
-            elif choice in ["5","monthly"]:
+            elif choice in ["4", "monthly"]:
                 self.manager.monthly_summary()
+            elif choice in ["5", "delete"]:
+                self.manager.delete_expense()
             elif choice in ["6", "exit"]:
                 print("👋 Thank you for using Expense Tracker! Goodbye!")
                 break
