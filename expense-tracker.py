@@ -10,7 +10,7 @@ class Expense:
         self.category = category.title().strip()
         self.description = description.strip()
         self.amount = round(float(amount), 2)
-        self.date = date if date else datetime.now().strftime("%Y-%m-%d")
+        self.date = date if date else datetime.now().strftime("%d/%m/%Y")
 
     def to_dict(self):
         return {
@@ -78,19 +78,51 @@ class ExpenseManager:
 
         print(f"✅ Expense of ₹{expense.amount:.2f} added successfully!")
 
-    def view_all_expenses(self):
+    def view_all_expenses(self, show_index=False):
+        """Show expenses. Option to show index for deletion."""
         if not self.expenses:
             print("No Previous Expenses Found!")
+            return False
+
+        print("\n" + "="*85)
+        if show_index:
+            print(f"{'Index':<6} {'Date':<12} {'Category':<15} {'Description':<25} {'Amount':<12}")
+        else:
+            print(f"{'Date':<12} {'Category':<15} {'Description':<25} {'Amount':<12}")
+        print("="*85)
+
+        for i, expense in enumerate(self.expenses, 1):
+            if show_index:
+                print(f"{i:<6} {expense}")
+            else:
+                print(expense)
+
+        print("="*85)
+        return True
+
+    def delete_expense(self):
+        """Delete an expense by index"""
+        if not self.view_all_expenses(show_index=True):
             return
 
-        print("\n" + "="*80)
-        print(f"{'Date':<12} {'Category':<15} {'Description':<25} {'Amount':<12}")
-        print("="*80)
+        while True:
+            try:
+                index = int(input("\nEnter the Index number of expense to delete: "))
+                if index <= 0 or index > len(self.expenses):
+                    print(f"❌ Invalid index! Please enter number between 1 and {len(self.expenses)}.")
+                    continue
+                break
+            except ValueError:
+                print("❌ Please enter a valid number!")
 
-        for expense in self.expenses:
-            print(expense)
+        confirm = input(f"Are you sure you want to delete expense #{index}? (yes/no): ").strip().lower()
+        if confirm not in ["yes", "y"]:
+            print("Deletion cancelled.")
+            return
 
-        print("="*80)
+        deleted = self.expenses.pop(index - 1)
+        self.save_expenses()
+        print(f"✅ Successfully deleted expense: {deleted}\n")
 
     def category_wise_summary(self):
         """Show spending by category (highest first)"""
@@ -115,6 +147,32 @@ class ExpenseManager:
         print(f"{'GRAND TOTAL':<18} : ₹{total:.2f}")
         print("="*50)
 
+    def monthly_summary(self):
+
+        if not self.expenses:
+            print("No expenses yet!")
+            return 
+        
+        monthly = defaultdict(float)
+        total = 0.0
+
+        for expense in self.expenses:
+            month_key = expense.date[2:]
+            monthly[month_key] += expense.amount
+            total += expense.amount
+
+        print("\n📅 MONTHLY SUMMARY")
+        print("="*50)
+
+        for month_key in sorted(monthly.keys(), reverse=True):
+            amount = monthly[month_key]
+            month, year = month_key.split('/')
+            month_name = datetime.strptime(month, "%m").strftime("%B")
+            print(f"{month_name} {year:<6} : ₹{amount:.2f}")
+
+        print("="*50)
+        print(f"{'GRAND TOTAL':<18} : ₹{total:.2f}")
+        print("="*50)
 
 class UserInterface:
     """Handles user menu and interaction"""
@@ -128,20 +186,26 @@ class UserInterface:
         while True:
             print("=" * 50)
             print("1. Add Expense")
-            print("2. View All Expenses")
-            print("3. Category Wise Summary")
-            print("4. Exit")
+            print("2. Delete Expense")
+            print("3. View All Expenses")
+            print("4. Category Wise Summary")
+            print("5. Monthly Summary")
+            print("6. Exit")
             print("=" * 50)
 
-            choice = input("Enter your choice (1/2/3/4): ").strip().lower()
+            choice = input("Enter your choice (1/2/3/4/5/6): ").strip().lower()
 
             if choice in ["1", "add"]:
                 self.manager.add_expense()
-            elif choice in ["2", "view"]:
+            elif choice in ["2", "delete"]:
+                self.manager.delete_expense()
+            elif choice in ["3", "view"]:
                 self.manager.view_all_expenses()
-            elif choice in ["3"]:
+            elif choice in ["4","category"]:
                 self.manager.category_wise_summary()
-            elif choice in ["4", "exit"]:
+            elif choice in ["5","monthly"]:
+                self.manager.monthly_summary()
+            elif choice in ["6", "exit"]:
                 print("👋 Thank you for using Expense Tracker! Goodbye!")
                 break
             else:
