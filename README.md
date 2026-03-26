@@ -2,27 +2,18 @@
 
 > 18-year-old from Noida, UP, India | Goal: Cybersecurity + Freelancing
 
-I started Python in March 2026 with zero prior experience. This repo is my public learning journal — every project here is written from scratch, not copied from tutorials. I'm documenting the full journey from beginner to job-ready.
+I started Python in March 2026 with zero prior experience. This repo is my public learning journal — every project here is written from scratch. I'm documenting the full journey from beginner to job-ready.
 
 ---
 
-## Projects
+## Basic Projects
 
-### 1. 🧮 Calculator (⭐ Featured Project)
+### 🧮 Calculator 
 **File:** `calculator/calculator.py`
 
-A command-line calculator built using functions. Each arithmetic operation is separated into its own function — clean, readable, and reusable.
+Basic CLI calculator supporting +, -, *, / with error handling.
 
-**Features**
-- Supports `+`, `-`, `*`, `/`
-- Division by zero handled with a proper error message
-- Loops until user chooses to exit
-- Invalid operator caught and handled
-
-**Concepts used**
-- Functions — `add()`, `subtract()`, `multiply()`, `divide()`
-- `while` loop with `continue` and `break`
-- Separation of concerns — one function per operation
+**Concepts used:** Functions, loops, input validation
 
 ```bash
 cd calculator
@@ -43,7 +34,7 @@ Calculate again? (yes/no):
 
 ---
 
-### 2. 🎓 Student Grading Calculator (⭐ Featured Project)
+### 🎓 Student Grading Calculator 
 **File:** `student-grading-calculator/student_grading_calculator.py`
 
 A command-line grading tool using OOP. Takes marks in `85/100` format, calculates percentage, assigns grade, and handles all bad inputs gracefully.
@@ -54,12 +45,7 @@ A command-line grading tool using OOP. Takes marks in `85/100` format, calculate
 - Validates all edge cases — zero max marks, negative values, marks exceeding total, wrong format
 - Type `quit` to exit cleanly
 
-**Concepts used**
-- OOP — `Student` class with `__init__` and `grade()` method
-- Input parsing with `.split("/")`
-- `try-except` for `ValueError` and general `Exception`
-- Custom `raise ValueError(...)` for logical validation
-- `while` loop with clean exit condition
+**Concepts used:** OOP (`__init__`, methods), input parsing, `try-except`, custom exceptions
 
 ```bash
 cd student-grading-calculator
@@ -79,25 +65,18 @@ Please try again.
 
 ---
 
-### 3. 🎯 Number Guessing Game (⭐ Featured Project)
+### 🎯 Number Guessing Game 
 **File:** `number-guessing-game/number_guessing_game.py`
 
-A command-line guessing game where the computer picks a number between 1–100 and gives smart hints — not just "too high/low" but also "close" vs "far".
+A fun number guessing game with smart hints and attempt tracking.
 
-**Features**
-- Computer picks a random number between 1 and 100
-- Hints tell you if you're far (`Too low!` / `Too high!`) or close (`Close, but still lower/higher`)
-- Tracks number of attempts
-- Correct grammar — `1 attempt` vs `2 attempts`
-- Play again option after winning
-- Invalid input handled with `ValueError`
+**Features:**
+- Random number generation (1–100)
+- Intelligent hints ("Too high", "Too low", "Close but lower")
+- Attempt counter with proper grammar
+- Play again option
 
-**Concepts used**
-- `random.randint()` for number generation
-- `try-except ValueError` for safe integer input
-- Nested conditionals for hint logic
-- Attempt counter
-- `while` loop with replay via `main()` function
+**Concepts used:** `random` module, loops, conditionals, input validation
 
 ```bash
 cd number-guessing-game
@@ -117,8 +96,9 @@ You won! My number was 31. You guessed it in 4 attempts.
 ```
 
 ---
+## ⭐ Featured Project
 
-### 4. 💰 Expense Tracker (OOP + JSON) (Main Project)
+### 💰 Expense Tracker (OOP + JSON) (Main Project)
 **File:** `expense-tracker/expense_tracker.py`
 
 The most advanced project in this repo. A full CLI expense tracker built with a proper 3-class OOP architecture that saves all data permanently to a JSON file.
