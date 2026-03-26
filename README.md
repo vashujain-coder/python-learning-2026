@@ -8,7 +8,7 @@ I started Python in March 2026 with zero prior experience. This repo is my publi
 
 ## Basic Projects
 
-### 🧮 Calculator 
+### 🧮 Calculator
 **File:** `calculator/calculator.py`
 
 Basic CLI calculator supporting +, -, *, / with error handling.
@@ -34,7 +34,7 @@ Calculate again? (yes/no):
 
 ---
 
-### 🎓 Student Grading Calculator 
+### 🎓 Student Grading Calculator
 **File:** `student-grading-calculator/student_grading_calculator.py`
 
 A command-line grading tool using OOP. Takes marks in `85/100` format, calculates percentage, assigns grade, and handles all bad inputs gracefully.
@@ -45,7 +45,7 @@ A command-line grading tool using OOP. Takes marks in `85/100` format, calculate
 - Validates all edge cases — zero max marks, negative values, marks exceeding total, wrong format
 - Type `quit` to exit cleanly
 
-**Concepts used:** OOP (`__init__`, methods), input parsing, `try-except`, custom exceptions
+**Concepts used:** OOP (`__init__`, methods), input parsing, `try-except`, custom `raise` exceptions
 
 ```bash
 cd student-grading-calculator
@@ -65,18 +65,18 @@ Please try again.
 
 ---
 
-### 🎯 Number Guessing Game 
+### 🎯 Number Guessing Game
 **File:** `number-guessing-game/number_guessing_game.py`
 
 A fun number guessing game with smart hints and attempt tracking.
 
-**Features:**
+**Features**
 - Random number generation (1–100)
-- Intelligent hints ("Too high", "Too low", "Close but lower")
-- Attempt counter with proper grammar
-- Play again option
+- Intelligent hints — "Too high", "Too low", "Close but lower/higher"
+- Attempt counter with correct grammar (`1 attempt` vs `2 attempts`)
+- Play again option after winning
 
-**Concepts used:** `random` module, loops, conditionals, input validation
+**Concepts used:** `random` module, loops, conditionals, `try-except ValueError`
 
 ```bash
 cd number-guessing-game
@@ -96,32 +96,41 @@ You won! My number was 31. You guessed it in 4 attempts.
 ```
 
 ---
+
 ## ⭐ Featured Project
 
-### 💰 Expense Tracker (OOP + JSON) (Main Project)
+### 💰 Expense Tracker (OOP + JSON)
 **File:** `expense-tracker/expense_tracker.py`
 
-The most advanced project in this repo. A full CLI expense tracker built with a proper 3-class OOP architecture that saves all data permanently to a JSON file.
+The most advanced project in this repo. A full CLI expense tracker built with a proper 3-class OOP architecture that permanently saves all data to a JSON file. Recently expanded with delete, monthly summary, and indexed view features.
 
 **Features**
 - Add expenses with category, description, and amount
+- Delete any expense by index number — with confirmation prompt
 - View all expenses in a formatted, aligned table
+- View with index numbers for easy deletion
 - Category-wise spending summary sorted by highest spend
-- Data auto-saves on every entry and auto-loads on startup
-- Handles corrupted file gracefully
+- Monthly summary — shows total spent per month across all time
+- Data auto-saves on every change and auto-loads on startup
+- Handles corrupted or missing file gracefully
 - Input validation — rejects negative amounts and non-numeric input
+- Date stored in `YYYY-MM-DD` format, parsed for monthly grouping
 
 **Concepts used**
 - OOP with 3 classes — `Expense`, `ExpenseManager`, `UserInterface`
 - `__str__()` for formatted table output
 - `to_dict()` for JSON serialization
 - `json.load()` and `json.dump()` for persistent file storage
-- `defaultdict(float)` from `collections` for category totals
-- `datetime.now().strftime()` for auto date-stamping
+- `defaultdict(float)` from `collections` for category and monthly totals
+- `datetime.now().strftime("%Y-%m-%d")` for auto date-stamping
+- `datetime.strptime()` to convert month number to month name
 - `os.path.exists()` for safe file checking
-- `try-except` on all file read/write operations
+- `try-except` on all file read/write and input operations
 - `round(float(amount), 2)` to prevent floating point bugs
+- `enumerate()` for indexed display
+- `list.pop(index)` for deletion
 - `if __name__ == "__main__"` guard
+- Optional parameter `show_index=False` on `view_all_expenses()`
 
 ```bash
 cd expense-tracker
@@ -135,21 +144,32 @@ python expense_tracker.py
 1. Add Expense
 2. View All Expenses
 3. Category Wise Summary
-4. Exit
+4. Monthly Summary
+5. Delete Expense
+6. Exit
 ==================================================
+```
 
+```
 ================================================================================
-Date         Category        Description               Amount
+Date       | Category        | Description               |   Amount
 ================================================================================
-2026-03-25 | Food           | Lunch at college        |    ₹120.00
-2026-03-25 | Transport      | Auto to metro           |     ₹40.00
-2026-03-26 | Food           | Dinner                  |     ₹90.00
+2026-03-25 | Food            | Lunch at college          |   ₹120.00
+2026-03-25 | Transport       | Auto to metro             |    ₹40.00
+2026-03-26 | Food            | Dinner                    |    ₹90.00
 ================================================================================
 
 📊 CATEGORY WISE SUMMARY
 ==================================================
 Food               : ₹210.00
 Transport          : ₹40.00
+==================================================
+GRAND TOTAL        : ₹250.00
+==================================================
+
+📅 MONTHLY SUMMARY
+==================================================
+March 2026         : ₹250.00
 ==================================================
 GRAND TOTAL        : ₹250.00
 ==================================================
@@ -168,10 +188,13 @@ GRAND TOTAL        : ₹250.00
 | Error handling — `try-except`, `raise`, `ValueError` | ✅ |
 | JSON read/write — `json.load()`, `json.dump()` | ✅ |
 | `collections.defaultdict` | ✅ |
-| `datetime` and `strftime()` | ✅ |
+| `datetime`, `strftime()`, `strptime()` | ✅ |
 | `random` module | ✅ |
 | `os.path` for file checking | ✅ |
 | Input parsing and validation | ✅ |
+| `enumerate()` for indexed loops | ✅ |
+| `list.pop()` for deletion | ✅ |
+| Optional function parameters | ✅ |
 | `if __name__ == "__main__"` pattern | ✅ |
 | Inheritance and polymorphism | 🔄 Learning |
 | `requests` library and APIs | 🔜 Next |
@@ -250,5 +273,3 @@ python expense-tracker/expense_tracker.py
 ---
 
 > ⚙️ This repository is structured and refined with the assistance of AI tools to improve code quality and documentation, while all logic and implementation are written independently.
-
----
