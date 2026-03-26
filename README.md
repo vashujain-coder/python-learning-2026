@@ -8,7 +8,7 @@ I started Python in March 2026 with zero prior experience. This repo is my publi
 
 ## Projects
 
-### 1. 🧮 Calculator
+### 1. 🧮 Calculator (⭐ Featured Project)
 **File:** `calculator/calculator.py`
 
 A command-line calculator built using functions. Each arithmetic operation is separated into its own function — clean, readable, and reusable.
@@ -22,7 +22,6 @@ A command-line calculator built using functions. Each arithmetic operation is se
 **Concepts used**
 - Functions — `add()`, `subtract()`, `multiply()`, `divide()`
 - `while` loop with `continue` and `break`
-- f-strings for clean output
 - Separation of concerns — one function per operation
 
 ```bash
@@ -44,7 +43,7 @@ Calculate again? (yes/no):
 
 ---
 
-### 2. 🎓 Student Grading Calculator
+### 2. 🎓 Student Grading Calculator (⭐ Featured Project)
 **File:** `student-grading-calculator/student_grading_calculator.py`
 
 A command-line grading tool using OOP. Takes marks in `85/100` format, calculates percentage, assigns grade, and handles all bad inputs gracefully.
@@ -80,7 +79,7 @@ Please try again.
 
 ---
 
-### 3. 🎯 Number Guessing Game
+### 3. 🎯 Number Guessing Game (⭐ Featured Project)
 **File:** `number-guessing-game/number_guessing_game.py`
 
 A command-line guessing game where the computer picks a number between 1–100 and gives smart hints — not just "too high/low" but also "close" vs "far".
@@ -119,7 +118,7 @@ You won! My number was 31. You guessed it in 4 attempts.
 
 ---
 
-### 4. 💰 Expense Tracker (OOP + JSON)
+### 4. 💰 Expense Tracker (OOP + JSON) (Main Project)
 **File:** `expense-tracker/expense_tracker.py`
 
 The most advanced project in this repo. A full CLI expense tracker built with a proper 3-class OOP architecture that saves all data permanently to a JSON file.
@@ -267,3 +266,9 @@ python expense-tracker/expense_tracker.py
 ---
 
 *Updated regularly. Every project is written from scratch while learning.*
+
+---
+
+> ⚙️ This repository is structured and refined with the assistance of AI tools to improve code quality and documentation, while all logic and implementation are written independently.
+
+---
