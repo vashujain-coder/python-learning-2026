@@ -97,12 +97,12 @@ You won! My number was 31. You guessed it in 4 attempts.
 
 ---
 
-## ⭐ Featured Project
+## ⭐ Featured Projects
 
 ### 💰 Expense Tracker (OOP + JSON)
 **File:** `expense-tracker/expense-tracker.py`
 
-The most advanced project in this repo. A full CLI expense tracker built with a 3-class OOP architecture using **inheritance and polymorphism**. Tracks expenses, enforces category budgets with live warnings, and saves all data permanently across two JSON files.
+A full CLI expense tracker built with a 3-class OOP architecture using **inheritance and polymorphism**. Tracks expenses, enforces category budgets with live warnings, and saves all data permanently across two JSON files.
 
 **Features**
 - Add expenses with category, description, and amount
@@ -116,7 +116,7 @@ The most advanced project in this repo. A full CLI expense tracker built with a 
 - Full budget status table — limit, spent, remaining, and status for every category
 - Data auto-saves on every change and auto-loads on startup
 - Handles missing or corrupted files gracefully
-- Input validation on every user input — rejects negatives and non-numeric values
+- Input validation on every user input
 
 **Concepts used**
 - Inheritance — `BudgetExpense` extends `Expense`
@@ -135,7 +135,6 @@ The most advanced project in this repo. A full CLI expense tracker built with a 
 - `sum()` with generator expression for budget calculations
 - `abs()` for fuzzy amount matching in search
 - `try-except` on every input and file operation
-- `round(float(), 2)` to prevent floating point bugs
 - Optional parameter `show_index=False` on `view_all_expenses()`
 - `if __name__ == "__main__"` guard
 
@@ -160,36 +159,74 @@ python expense-tracker.py
 ==================================================
 ```
 
-**Budget warning on add:**
-```
-Enter Category: Food
-Enter Description: Dinner
-Enter Amount (₹): 300
-⚠️  Warning: Only ₹50.00 left in Food budget!
-✅ Expense of ₹300.00 added successfully!
-```
-
-**Budget status table:**
 ```
 📋 BUDGET STATUS
 =====================================================================================
 Category          Limit         Spent         Remaining      Status
 =====================================================================================
-Food            |  ₹2000.00  |  ₹1950.00  |    ₹  50.00  | ⚠️  Near limit
-Transport       |   ₹500.00  |  ₹  40.00  |    ₹ 460.00  | ✅ OK
-Rent            |  ₹8000.00  |  ₹8500.00  |   -₹ 500.00  | ❌ Exceeded
+Food            |  ₹2000.00  |  ₹1950.00  |      ₹50.00  | ⚠️  Near limit
+Transport       |   ₹500.00  |    ₹40.00  |     ₹460.00  | ✅ OK
+Rent            |  ₹8000.00  |  ₹8500.00  |    -₹500.00  | ❌ Exceeded
 =====================================================================================
 ```
 
-**Monthly summary:**
+---
+
+### 📈 Crypto Price Tracker (API + JSON)
+**File:** `crypto-price-tracker/price_tracker.py`
+
+A live CLI crypto price tracker that fetches real-time prices from the CoinGecko API. Set price alerts saved to JSON — triggers automatically on startup whenever a target is hit.
+
+**Features**
+- Fetch live INR price of any supported coin — single or multiple at once
+- Set "Above" or "Below" price alerts saved permanently to JSON
+- View all saved alerts in a formatted table
+- Alerts auto-check on every startup — notifies if any target is hit
+- Manually trigger alert check from the menu
+- Handles all network errors — timeout, connection loss, bad response
+- Input validation on every field
+
+**Concepts used**
+- `requests.get()` with `params` and `timeout`
+- `r.raise_for_status()` for automatic HTTP error handling
+- `requests.exceptions.Timeout`, `ConnectionError`, `HTTPError`
+- REST API consumption — reading and parsing JSON responses
+- Separation of concerns — `fetch_price()` returns data, `get_price()` displays it
+- `json.load()` / `json.dump()` for persistent alert storage
+- `os.path.exists()` for safe file handling
+- `datetime.strftime()` for date stamping
+- `f-string` formatting with `:,.2f` for currency display
+- `if __name__ == "__main__"` guard
+
+```bash
+cd crypto-price-tracker
+python price_tracker.py
 ```
-📅 MONTHLY SUMMARY
+
+```
+💰 Crypto Price Tracker 💰
+
 ==================================================
-March 2026         : ₹2500.00
-February 2026      : ₹1800.00
+  1. Check Crypto Price
+  2. Set Price Alert
+  3. View Alert History
+  4. Check Alerts Now
+  5. Exit
 ==================================================
-GRAND TOTAL        : ₹4300.00
-==================================================
+```
+
+```
+Supported coins: Bitcoin, Ethereum, Dogecoin, Solana, Binancecoin, Ripple
+
+Enter coin(s) — single or comma separated: bitcoin, ethereum
+
+  Bitcoin          ₹      68,23,000.00
+  Ethereum         ₹       2,45,300.00
+```
+
+```
+🔍 Checking alerts...
+🚨 ALERT: Bitcoin is ₹68,23,000.00 — above your target of ₹65,00,000.00!
 ```
 
 ---
@@ -216,7 +253,9 @@ GRAND TOTAL        : ₹4300.00
 | `sum()` with generator expressions | ✅ |
 | Optional function parameters | ✅ |
 | `if __name__ == "__main__"` pattern | ✅ |
-| `requests` library and APIs | 🔜 Next |
+| `requests` library — GET, params, timeout | ✅ |
+| REST API consumption and JSON parsing | ✅ |
+| HTTP error handling — status codes, exceptions | ✅ |
 | Web scraping — BeautifulSoup | 🔜 Upcoming |
 | `re` module — regex | 🔜 Upcoming |
 | `hashlib` and `socket` for cybersecurity | 🔜 Upcoming |
@@ -228,7 +267,7 @@ GRAND TOTAL        : ₹4300.00
 
 ```
 Phase 1 — Python Core (Weeks 1–6)         ██████████  Done
-Phase 2 — SQL + Freelancing Setup         ░░░░░░░░░░  Upcoming
+Phase 2 — Libraries + APIs (Weeks 7–9)    ████░░░░░░  In Progress
 Phase 3 — Cybersecurity Foundations       ░░░░░░░░░░  Upcoming
 Phase 4 — TryHackMe + Pen Testing Tools   ░░░░░░░░░░  Upcoming
 ```
@@ -257,6 +296,10 @@ python-learning-2026/
 │   ├── budget.json            ← auto-generated when first budget is set
 │   └── README.md
 │
+├── crypto-price-tracker/
+│   ├── price_tracker.py
+│   └── alerts.json            ← auto-generated when first alert is set
+│
 ├── .gitignore
 ├── LICENSE
 └── README.md
@@ -266,7 +309,11 @@ python-learning-2026/
 
 ## How to Run
 
-**Requirement:** Python 3.8 or higher. No external libraries — 100% Python standard library.
+**Requirements:** Python 3.8+. Install `requests` for the price tracker:
+
+```bash
+pip install requests
+```
 
 ```bash
 # Clone the repo
@@ -278,6 +325,7 @@ python calculator/calculator.py
 python student-grading-calculator/student-grading-calculator.py
 python number-guessing-game/number-guessing-game.py
 python expense-tracker/expense-tracker.py
+python crypto-price-tracker/price_tracker.py
 ```
 
 ---
