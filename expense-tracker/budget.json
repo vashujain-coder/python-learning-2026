@@ -1,5 +1,6 @@
 {
   "Food": 400.0,
   "Rent": 10000.0,
-  "Transport": 2000.0
+  "Transport": 2000.0,
+  "Shopping": 5000.0
 }
