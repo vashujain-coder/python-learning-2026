@@ -6,14 +6,14 @@ I started Python in March 2026 with zero prior experience. This repo is my publi
 
 ---
 
-## Basic Projects
+## Projects
 
 ### 🧮 Calculator
 **File:** `calculator/calculator.py`
 
 Basic CLI calculator supporting +, -, *, / with error handling.
 
-**Concepts used:** Functions, loops, input validation
+**Concepts used:** Functions, loops, f-strings, input validation
 
 ```bash
 cd calculator
@@ -35,9 +35,9 @@ Calculate again? (yes/no):
 ---
 
 ### 🎓 Student Grading Calculator
-**File:** `student-grading-calculator/student_grading_calculator.py`
+**File:** `student-grading-calculator/student-grading-calculator.py`
 
-A command-line grading tool using OOP. Takes marks in `85/100` format, calculates percentage, assigns grade, and handles all bad inputs gracefully.
+A command-line grading tool using OOP. Takes marks in `85/100` format, calculates percentage, assigns a grade, and handles all bad inputs gracefully.
 
 **Features**
 - Accepts marks in `marks/max_marks` format (e.g. `85/100`)
@@ -45,11 +45,11 @@ A command-line grading tool using OOP. Takes marks in `85/100` format, calculate
 - Validates all edge cases — zero max marks, negative values, marks exceeding total, wrong format
 - Type `quit` to exit cleanly
 
-**Concepts used:** OOP (`__init__`, methods), input parsing, `try-except`, custom `raise` exceptions
+**Concepts used:** OOP (`__init__`, methods), input parsing with `.split()`, `try-except`, custom `raise` exceptions
 
 ```bash
 cd student-grading-calculator
-python student_grading_calculator.py
+python student-grading-calculator.py
 ```
 
 ```
@@ -66,21 +66,21 @@ Please try again.
 ---
 
 ### 🎯 Number Guessing Game
-**File:** `number-guessing-game/number_guessing_game.py`
+**File:** `number-guessing-game/number-guessing-game.py`
 
-A fun number guessing game with smart hints and attempt tracking.
+A number guessing game with smart hints and attempt tracking.
 
 **Features**
-- Random number generation (1–100)
-- Intelligent hints — "Too high", "Too low", "Close but lower/higher"
+- Computer picks a random number between 1 and 100
+- Smart hints — "Too high", "Too low", "Close but lower/higher"
 - Attempt counter with correct grammar (`1 attempt` vs `2 attempts`)
 - Play again option after winning
 
-**Concepts used:** `random` module, loops, conditionals, `try-except ValueError`
+**Concepts used:** `random.randint()`, loops, conditionals, `try-except ValueError`
 
 ```bash
 cd number-guessing-game
-python number_guessing_game.py
+python number-guessing-game.py
 ```
 
 ```
@@ -100,78 +100,95 @@ You won! My number was 31. You guessed it in 4 attempts.
 ## ⭐ Featured Project
 
 ### 💰 Expense Tracker (OOP + JSON)
-**File:** `expense-tracker/expense_tracker.py`
+**File:** `expense-tracker/expense-tracker.py`
 
-The most advanced project in this repo. A full CLI expense tracker built with a proper 3-class OOP architecture that permanently saves all data to a JSON file. Recently expanded with delete, monthly summary, and indexed view features.
+The most advanced project in this repo. A full CLI expense tracker built with a 3-class OOP architecture using **inheritance and polymorphism**. Tracks expenses, enforces category budgets with live warnings, and saves all data permanently across two JSON files.
 
 **Features**
 - Add expenses with category, description, and amount
-- Delete any expense by index number — with confirmation prompt
+- Delete any expense by index with a confirmation prompt
 - View all expenses in a formatted, aligned table
-- View with index numbers for easy deletion
+- Search expenses by date, category, description, or amount
 - Category-wise spending summary sorted by highest spend
-- Monthly summary — shows total spent per month across all time
+- Monthly summary — total spent per month, most recent first
+- Set a spending budget limit for any category
+- Live budget warning on every new expense — shows remaining or exceeded amount
+- Full budget status table — limit, spent, remaining, and status for every category
 - Data auto-saves on every change and auto-loads on startup
-- Handles corrupted or missing file gracefully
-- Input validation — rejects negative amounts and non-numeric input
-- Date stored in `YYYY-MM-DD` format, parsed for monthly grouping
+- Handles missing or corrupted files gracefully
+- Input validation on every user input — rejects negatives and non-numeric values
 
 **Concepts used**
-- OOP with 3 classes — `Expense`, `ExpenseManager`, `UserInterface`
-- `__str__()` for formatted table output
-- `to_dict()` for JSON serialization
-- `json.load()` and `json.dump()` for persistent file storage
-- `defaultdict(float)` from `collections` for category and monthly totals
-- `datetime.now().strftime("%Y-%m-%d")` for auto date-stamping
-- `datetime.strptime()` to convert month number to month name
-- `os.path.exists()` for safe file checking
-- `try-except` on all file read/write and input operations
-- `round(float(amount), 2)` to prevent floating point bugs
+- Inheritance — `BudgetExpense` extends `Expense`
+- Polymorphism — `add_expense()` uses `BudgetExpense` transparently as `Expense`
+- `super().__init__()` — correct parent class initialisation
+- Class variable `budget_limit = {}` — shared across all instances
+- `@classmethod` — `set_budget()` and `check_any_budget()`
+- `__str__()` dunder method for formatted table rows
+- `to_dict()` for JSON serialisation
+- `json.load()` / `json.dump()` — two separate persistent JSON files
+- `defaultdict(float)` for category and monthly grouping
+- `datetime.strptime()` / `strftime()` for date formatting and month names
+- `os.path.exists()` and `os.path.dirname()` for safe, portable file paths
 - `enumerate()` for indexed display
 - `list.pop(index)` for deletion
-- `if __name__ == "__main__"` guard
+- `sum()` with generator expression for budget calculations
+- `abs()` for fuzzy amount matching in search
+- `try-except` on every input and file operation
+- `round(float(), 2)` to prevent floating point bugs
 - Optional parameter `show_index=False` on `view_all_expenses()`
+- `if __name__ == "__main__"` guard
 
 ```bash
 cd expense-tracker
-python expense_tracker.py
+python expense-tracker.py
 ```
 
 ```
-💰 Welcome to OOP Expense Tracker (JSON Version) 💰
+💰 Welcome to Expense Tracker 💰
 
 ==================================================
-1. Add Expense
-2. View All Expenses
-3. Category Wise Summary
-4. Monthly Summary
-5. Delete Expense
-6. Exit
+  1. Add Expense
+  2. View All Expenses
+  3. Category Wise Summary
+  4. Monthly Summary
+  5. Delete Expense
+  6. Search Expenses
+  7. Set Budget
+  8. Check Budget
+  9. Exit
 ==================================================
 ```
 
+**Budget warning on add:**
 ```
-================================================================================
-Date       | Category        | Description               |   Amount
-================================================================================
-2026-03-25 | Food            | Lunch at college          |   ₹120.00
-2026-03-25 | Transport       | Auto to metro             |    ₹40.00
-2026-03-26 | Food            | Dinner                    |    ₹90.00
-================================================================================
+Enter Category: Food
+Enter Description: Dinner
+Enter Amount (₹): 300
+⚠️  Warning: Only ₹50.00 left in Food budget!
+✅ Expense of ₹300.00 added successfully!
+```
 
-📊 CATEGORY WISE SUMMARY
-==================================================
-Food               : ₹210.00
-Transport          : ₹40.00
-==================================================
-GRAND TOTAL        : ₹250.00
-==================================================
+**Budget status table:**
+```
+📋 BUDGET STATUS
+=====================================================================================
+Category          Limit         Spent         Remaining      Status
+=====================================================================================
+Food            |  ₹2000.00  |  ₹1950.00  |    ₹  50.00  | ⚠️  Near limit
+Transport       |   ₹500.00  |  ₹  40.00  |    ₹ 460.00  | ✅ OK
+Rent            |  ₹8000.00  |  ₹8500.00  |   -₹ 500.00  | ❌ Exceeded
+=====================================================================================
+```
 
+**Monthly summary:**
+```
 📅 MONTHLY SUMMARY
 ==================================================
-March 2026         : ₹250.00
+March 2026         : ₹2500.00
+February 2026      : ₹1800.00
 ==================================================
-GRAND TOTAL        : ₹250.00
+GRAND TOTAL        : ₹4300.00
 ==================================================
 ```
 
@@ -185,18 +202,20 @@ GRAND TOTAL        : ₹250.00
 | Functions and scope | ✅ |
 | File I/O — read, write, append | ✅ |
 | OOP — classes, `__init__`, methods, dunder methods | ✅ |
+| Inheritance — `class Child(Parent)`, `super()` | ✅ |
+| Polymorphism — same interface, different behaviour | ✅ |
+| Class variables and `@classmethod` | ✅ |
 | Error handling — `try-except`, `raise`, `ValueError` | ✅ |
 | JSON read/write — `json.load()`, `json.dump()` | ✅ |
 | `collections.defaultdict` | ✅ |
 | `datetime`, `strftime()`, `strptime()` | ✅ |
 | `random` module | ✅ |
-| `os.path` for file checking | ✅ |
-| Input parsing and validation | ✅ |
+| `os.path` for safe file handling | ✅ |
 | `enumerate()` for indexed loops | ✅ |
 | `list.pop()` for deletion | ✅ |
+| `sum()` with generator expressions | ✅ |
 | Optional function parameters | ✅ |
 | `if __name__ == "__main__"` pattern | ✅ |
-| Inheritance and polymorphism | 🔄 Learning |
 | `requests` library and APIs | 🔜 Next |
 | Web scraping — BeautifulSoup | 🔜 Upcoming |
 | `re` module — regex | 🔜 Upcoming |
@@ -208,7 +227,7 @@ GRAND TOTAL        : ₹250.00
 ## Roadmap
 
 ```
-Phase 1 — Python Core (Weeks 1–6)         ████████░░  In Progress
+Phase 1 — Python Core (Weeks 1–6)         ██████████  Done
 Phase 2 — SQL + Freelancing Setup         ░░░░░░░░░░  Upcoming
 Phase 3 — Cybersecurity Foundations       ░░░░░░░░░░  Upcoming
 Phase 4 — TryHackMe + Pen Testing Tools   ░░░░░░░░░░  Upcoming
@@ -227,15 +246,19 @@ python-learning-2026/
 │   └── calculator.py
 │
 ├── student-grading-calculator/
-│   └── student_grading_calculator.py
+│   └── student-grading-calculator.py
 │
 ├── number-guessing-game/
-│   └── number_guessing_game.py
+│   └── number-guessing-game.py
 │
 ├── expense-tracker/
-│   ├── expense_tracker.py
-│   └── expenses.json          ← auto-generated on first run
+│   ├── expense-tracker.py
+│   ├── expenses.json          ← auto-generated on first run
+│   ├── budget.json            ← auto-generated when first budget is set
+│   └── README.md
 │
+├── .gitignore
+├── LICENSE
 └── README.md
 ```
 
@@ -252,9 +275,9 @@ cd python-learning-2026
 
 # Run any project
 python calculator/calculator.py
-python student-grading-calculator/student_grading_calculator.py
-python number-guessing-game/number_guessing_game.py
-python expense-tracker/expense_tracker.py
+python student-grading-calculator/student-grading-calculator.py
+python number-guessing-game/number-guessing-game.py
+python expense-tracker/expense-tracker.py
 ```
 
 ---
