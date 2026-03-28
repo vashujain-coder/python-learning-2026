@@ -173,7 +173,7 @@ Rent            |  ₹8000.00  |  ₹8500.00  |    -₹500.00  | ❌ Exceeded
 ---
 
 ### 📈 Crypto Price Tracker (API + JSON)
-**File:** `crypto-price-tracker/price_tracker.py`
+**File:** `crypto-price-tracker/crypto-price-tracker.py`
 
 A live CLI crypto price tracker that fetches real-time prices from the CoinGecko API. Set price alerts saved to JSON — triggers automatically on startup whenever a target is hit.
 
@@ -200,7 +200,7 @@ A live CLI crypto price tracker that fetches real-time prices from the CoinGecko
 
 ```bash
 cd crypto-price-tracker
-python price_tracker.py
+python crypto-price-tracker.py
 ```
 
 ```
@@ -266,8 +266,8 @@ Enter coin(s) — single or comma separated: bitcoin, ethereum
 ## Roadmap
 
 ```
-Phase 1 — Python Core (Weeks 1–6)         ██████████  Done
-Phase 2 — Libraries + APIs (Weeks 7–9)    ████░░░░░░  In Progress
+Phase 1 — Python Core (Weeks 1–3)         ██████████  Done
+Phase 2 — Libraries + APIs (Weeks 4–5)    ████░░░░░░  In Progress
 Phase 3 — Cybersecurity Foundations       ░░░░░░░░░░  Upcoming
 Phase 4 — TryHackMe + Pen Testing Tools   ░░░░░░░░░░  Upcoming
 ```
@@ -297,7 +297,7 @@ python-learning-2026/
 │   └── README.md
 │
 ├── crypto-price-tracker/
-│   ├── price_tracker.py
+│   ├── crypto-price-tracker.py
 │   └── alerts.json            ← auto-generated when first alert is set
 │
 ├── .gitignore
@@ -325,7 +325,7 @@ python calculator/calculator.py
 python student-grading-calculator/student-grading-calculator.py
 python number-guessing-game/number-guessing-game.py
 python expense-tracker/expense-tracker.py
-python crypto-price-tracker/price_tracker.py
+python crypto-price-tracker/crypto-price-tracker.py
 ```
 
 ---
