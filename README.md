@@ -6,17 +6,17 @@ I started Python in March 2026 with zero prior experience. This repo is my publi
 
 ---
 
-## Projects
+## Simple Projects
 
 ### 🧮 Calculator
-**File:** `calculator/calculator.py`
+**File:** `Simple-Projects/calculator/calculator.py`
 
 Basic CLI calculator supporting +, -, *, / with error handling.
 
 **Concepts used:** Functions, loops, f-strings, input validation
 
 ```bash
-cd calculator
+cd Simple-Projects/calculator
 python calculator.py
 ```
 
@@ -35,7 +35,7 @@ Calculate again? (yes/no):
 ---
 
 ### 🎓 Student Grading Calculator
-**File:** `student-grading-calculator/student-grading-calculator.py`
+**File:** `Simple-Projects/student-grading-calculator/student-grading-calculator.py`
 
 A command-line grading tool using OOP. Takes marks in `85/100` format, calculates percentage, assigns a grade, and handles all bad inputs gracefully.
 
@@ -48,7 +48,7 @@ A command-line grading tool using OOP. Takes marks in `85/100` format, calculate
 **Concepts used:** OOP (`__init__`, methods), input parsing with `.split()`, `try-except`, custom `raise` exceptions
 
 ```bash
-cd student-grading-calculator
+cd Simple-Projects/student-grading-calculator
 python student-grading-calculator.py
 ```
 
@@ -66,7 +66,7 @@ Please try again.
 ---
 
 ### 🎯 Number Guessing Game
-**File:** `number-guessing-game/number-guessing-game.py`
+**File:** `Simple-Projects/number-guessing-game/number-guessing-game.py`
 
 A number guessing game with smart hints and attempt tracking.
 
@@ -79,7 +79,7 @@ A number guessing game with smart hints and attempt tracking.
 **Concepts used:** `random.randint()`, loops, conditionals, `try-except ValueError`
 
 ```bash
-cd number-guessing-game
+cd Simple-Projects/number-guessing-game
 python number-guessing-game.py
 ```
 
@@ -97,10 +97,71 @@ You won! My number was 31. You guessed it in 4 attempts.
 
 ---
 
+### 📁 File Organiser
+**File:** `Simple-Projects/file-organiser/file-organiser.py`
+
+A CLI tool that automatically sorts all files in any folder into subfolders by type — Images, Videos, Documents, Code, Archives, Audio, and Other.
+
+**Features**
+- Organises any folder with a single command
+- Sorts 30+ file extensions into 7 categories
+- Skips subfolders — only moves files
+- Generates a text report of every file moved
+- Handles errors gracefully — won't crash on locked files
+
+**Concepts used:** `os.listdir()`, `os.path.splitext()`, `shutil.move()`, `os.mkdir()`, file I/O, `datetime`
+
+```bash
+cd Simple-Projects/file-organiser
+python file-organiser.py
+```
+
+```
+Enter the path of the folder to organise: C:/Users/vashu/Downloads
+Moved: report.pdf → Documents/
+Moved: photo.jpg → Images/
+Moved: song.mp3 → Audio/
+Moved: script.py → Code/
+
+✅ Done! 4 file(s) organised successfully.
+```
+
+---
+
+### 📊 Excel Report Generator
+**File:** `Simple-Projects/excel-report-generator/excel-report-generator.py`
+
+Takes a raw messy CSV sales file and automatically generates a professional 3-sheet Excel report — cleaned data, salesperson summary, and region analysis.
+
+**Features**
+- Cleans messy data — inconsistent names, mixed date formats, missing values
+- Calculates revenue automatically
+- Generates salesperson summary — total revenue, units sold, orders ranked highest first
+- Generates region summary — best product per region by revenue
+- Professional formatting — dark blue headers, auto-adjusted column widths
+- Handles all edge cases — missing values, wrong formats
+
+**Concepts used:** `pandas` — `read_csv()`, `groupby()`, `agg()`, `idxmax()`, `fillna()`, `to_datetime()`, `str.strip()`, `str.title()` — `openpyxl` — `load_workbook()`, `Font`, `PatternFill`, `Alignment`, auto column width — `ExcelWriter`
+
+```bash
+cd Simple-Projects/excel-report-generator
+pip install pandas openpyxl
+python excel-report-generator.py
+```
+
+```
+✅ Successfully generated sales_report.xlsx
+   Sheet 1 — Cleaned Data
+   Sheet 2 — Summary by Salesperson
+   Sheet 3 — Summary by Region
+```
+
+---
+
 ## ⭐ Featured Projects
 
 ### 💰 Expense Tracker (OOP + JSON)
-**File:** `expense-tracker/expense-tracker.py`
+**File:** `Featured-Projects/expense-tracker/expense-tracker.py`
 
 A full CLI expense tracker built with a 3-class OOP architecture using **inheritance and polymorphism**. Tracks expenses, enforces category budgets with live warnings, and saves all data permanently across two JSON files.
 
@@ -139,7 +200,7 @@ A full CLI expense tracker built with a 3-class OOP architecture using **inherit
 - `if __name__ == "__main__"` guard
 
 ```bash
-cd expense-tracker
+cd Featured-Projects/expense-tracker
 python expense-tracker.py
 ```
 
@@ -173,7 +234,7 @@ Rent            |  ₹8000.00  |  ₹8500.00  |    -₹500.00  | ❌ Exceeded
 ---
 
 ### 📈 Crypto Price Tracker (API + JSON)
-**File:** `crypto-price-tracker/crypto-price-tracker.py`
+**File:** `Featured-Projects/crypto-price-tracker/crypto-price-tracker.py`
 
 A live CLI crypto price tracker that fetches real-time prices from the CoinGecko API. Set price alerts saved to JSON — triggers automatically on startup whenever a target is hit.
 
@@ -195,11 +256,11 @@ A live CLI crypto price tracker that fetches real-time prices from the CoinGecko
 - `json.load()` / `json.dump()` for persistent alert storage
 - `os.path.exists()` for safe file handling
 - `datetime.strftime()` for date stamping
-- `f-string` formatting with `:,.2f` for currency display
 - `if __name__ == "__main__"` guard
 
 ```bash
-cd crypto-price-tracker
+cd Featured-Projects/crypto-price-tracker
+pip install requests
 python crypto-price-tracker.py
 ```
 
@@ -213,15 +274,6 @@ python crypto-price-tracker.py
   4. Check Alerts Now
   5. Exit
 ==================================================
-```
-
-```
-Supported coins: Bitcoin, Ethereum, Dogecoin, Solana, Binancecoin, Ripple
-
-Enter coin(s) — single or comma separated: bitcoin, ethereum
-
-  Bitcoin          ₹      68,23,000.00
-  Ethereum         ₹       2,45,300.00
 ```
 
 ```
@@ -247,6 +299,7 @@ Enter coin(s) — single or comma separated: bitcoin, ethereum
 | `collections.defaultdict` | ✅ |
 | `datetime`, `strftime()`, `strptime()` | ✅ |
 | `random` module | ✅ |
+| `os` and `shutil` — file system operations | ✅ |
 | `os.path` for safe file handling | ✅ |
 | `enumerate()` for indexed loops | ✅ |
 | `list.pop()` for deletion | ✅ |
@@ -256,6 +309,10 @@ Enter coin(s) — single or comma separated: bitcoin, ethereum
 | `requests` library — GET, params, timeout | ✅ |
 | REST API consumption and JSON parsing | ✅ |
 | HTTP error handling — status codes, exceptions | ✅ |
+| `pandas` — read, clean, groupby, agg, apply | ✅ |
+| `openpyxl` — formatting, styles, column widths | ✅ |
+| `ExcelWriter` — multi-sheet Excel output | ✅ |
+| SQL + `sqlite3` | 🔜 Next |
 | Web scraping — BeautifulSoup | 🔜 Upcoming |
 | `re` module — regex | 🔜 Upcoming |
 | `hashlib` and `socket` for cybersecurity | 🔜 Upcoming |
@@ -267,9 +324,10 @@ Enter coin(s) — single or comma separated: bitcoin, ethereum
 
 ```
 Phase 1 — Python Core (Weeks 1–3)         ██████████  Done
-Phase 2 — Libraries + APIs (Weeks 4–5)    ████░░░░░░  In Progress
-Phase 3 — Cybersecurity Foundations       ░░░░░░░░░░  Upcoming
-Phase 4 — TryHackMe + Pen Testing Tools   ░░░░░░░░░░  Upcoming
+Phase 2 — Libraries + APIs (Weeks 4–5)    ████████░░  In Progress
+Phase 3 — SQL + Database                  ░░░░░░░░░░  Upcoming
+Phase 4 — Cybersecurity Foundations       ░░░░░░░░░░  Upcoming
+Phase 5 — TryHackMe + Pen Testing Tools   ░░░░░░░░░░  Upcoming
 ```
 
 **End goal:** Land freelance Python work and become a cybersecurity specialist before finishing BSc CS.
@@ -281,24 +339,33 @@ Phase 4 — TryHackMe + Pen Testing Tools   ░░░░░░░░░░  Upco
 ```
 python-learning-2026/
 │
-├── calculator/
-│   └── calculator.py
+├── Featured-Projects/
+│   ├── expense-tracker/
+│   │   ├── expense-tracker.py
+│   │   ├── expenses.json          ← auto-generated on first run
+│   │   ├── budget.json            ← auto-generated when first budget is set
+│   │   └── README.md
+│   │
+│   └── crypto-price-tracker/
+│       ├── crypto-price-tracker.py
+│       └── alerts.json            ← auto-generated when first alert is set
 │
-├── student-grading-calculator/
-│   └── student-grading-calculator.py
-│
-├── number-guessing-game/
-│   └── number-guessing-game.py
-│
-├── expense-tracker/
-│   ├── expense-tracker.py
-│   ├── expenses.json          ← auto-generated on first run
-│   ├── budget.json            ← auto-generated when first budget is set
-│   └── README.md
-│
-├── crypto-price-tracker/
-│   ├── crypto-price-tracker.py
-│   └── alerts.json            ← auto-generated when first alert is set
+├── Simple-Projects/
+│   ├── calculator/
+│   │   └── calculator.py
+│   │
+│   ├── student-grading-calculator/
+│   │   └── student-grading-calculator.py
+│   │
+│   ├── number-guessing-game/
+│   │   └── number-guessing-game.py
+│   │
+│   ├── file-organiser/
+│   │   └── file-organiser.py
+│   │
+│   └── excel-report-generator/
+│       ├── excel-report-generator.py
+│       └── raw_sales.csv
 │
 ├── .gitignore
 ├── LICENSE
@@ -309,23 +376,26 @@ python-learning-2026/
 
 ## How to Run
 
-**Requirements:** Python 3.8+. Install `requests` for the price tracker:
-
-```bash
-pip install requests
-```
+**Requirements:** Python 3.8+
 
 ```bash
 # Clone the repo
 git clone https://github.com/vashujain-coder/python-learning-2026.git
 cd python-learning-2026
 
-# Run any project
-python calculator/calculator.py
-python student-grading-calculator/student-grading-calculator.py
-python number-guessing-game/number-guessing-game.py
-python expense-tracker/expense-tracker.py
-python crypto-price-tracker/crypto-price-tracker.py
+# Install dependencies (only needed for some projects)
+pip install requests pandas openpyxl
+
+# Simple Projects
+python Simple-Projects/calculator/calculator.py
+python Simple-Projects/student-grading-calculator/student-grading-calculator.py
+python Simple-Projects/number-guessing-game/number-guessing-game.py
+python Simple-Projects/file-organiser/file-organiser.py
+python Simple-Projects/excel-report-generator/excel-report-generator.py
+
+# Featured Projects
+python Featured-Projects/expense-tracker/expense-tracker.py
+python Featured-Projects/crypto-price-tracker/crypto-price-tracker.py
 ```
 
 ---

@@ -1,0 +1,8 @@
+[
+    {
+        "coin": "bitcoin",
+        "target_price": 7000000.0,
+        "condition": "Above",
+        "created": "29/03/2026"
+    }
+]

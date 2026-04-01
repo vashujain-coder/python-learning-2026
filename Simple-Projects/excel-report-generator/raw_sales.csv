@@ -1,0 +1,16 @@
+Date,Sales Person,Region,Product,Units,Price
+2026-03-01,John Doe,North,Widget A,50,25.5
+03/02/2026,jane smith,South,Widget B,,30
+2026/03/03,RAHUL KUMAR,,Widget A,75,22.99
+4-3-2026,rahul kumar,North,Widget C,40,
+2026-03-05,Ankit Sharma,north,widget a,60,24.5
+March 6 2026,PRIYA SINGH,South,,85,19.99
+2026-03-07,,East,Widget B,30,28.75
+08/03/2026, amit verma,West,Widget D,45,35
+2026-03-09,Neha Gupta,NORTH,Widget A,,26.5
+10-03-2026,John doe,South,Widget C,55,23.00
+2026/03/11,Sarah Khan,East,widget b,70,21.5
+2026-03-12,Rahul Kumar,,Widget A,90,
+13/03/2026,priya singh,South,Widget D,25,32.75
+2026-03-14,ANKIT SHARMA,West,Widget C,40,27.99
+2026-03-15,neha gupta,North,Widget B,65,24
