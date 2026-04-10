@@ -491,7 +491,7 @@ python Featured-Projects/freelance-project-tracker/freelance-project-tracker.py
 - 📍 Noida, Uttar Pradesh, India
 - 🎯 Goal: Cybersecurity specialist + Python freelancer
 - 🔰 Started Python: March 2026 — zero prior experience
-- 💼 Available for freelance work — automation, data tools, CLI applications, web scrapping
+- 💼 Available for freelance work — automation, data tools, CLI applications, web scraping
 - 🛒 Fiverr: [fiverr.com/s/2KRq75X](https://fiverr.com/s/2KRq75X)
 
 ---
