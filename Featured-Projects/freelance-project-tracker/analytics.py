@@ -24,16 +24,16 @@ class Analytics:
         active = sum(1 for p in projects if p.status == "Active")
         overdue = sum(1 for p in projects if p.is_overdue)
 
-        print("\n" + "="*60)
-        print("                    📊 ANALYTICS SUMMARY")
-        print("="*60)
+        print("\n" + "="*70)
+        print(f"{'📊 ANALYTICS SUMMARY'.center(70)}")
+        print("="*70)
         print(f"Total Earned          : ₹{total_earned:,.2f}")
         print(f"Total Payments        : {len(payments)}")
         print(f"Total Projects        : {total_projects}")
         print(f"  → Completed         : {completed}")
         print(f"  → Active            : {active}")
         print(f"  → Overdue           : {overdue}")
-        print("=" * 60)
+        print("=" * 70)
 
         monthly = defaultdict(float)
         for p in payments:

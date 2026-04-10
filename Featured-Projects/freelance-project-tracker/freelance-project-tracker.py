@@ -14,9 +14,9 @@ class App:
         self.db = Database()
 
     def add_client(self):
-        print("\n" + "="*65)
-        print("                    ADD NEW CLIENT")
-        print("="*65)
+        print("\n" + "="*70)
+        print(f"{'ADD NEW CLIENT'.center(70)}")
+        print("="*70)
 
         name = input("Client Name: ").strip().title()
         if not name:
@@ -40,12 +40,12 @@ class App:
         if not clients:
             print("No clients found.")
             return
-        print("\n" + "="*120)
+        print("\n" + "="*135)
         print(f"{'ID':<4} | {'Name':<20} | {'Email':<30} | {'Country':<15} | {'Platform':<15} | Added Date")
-        print("="*120)
+        print("="*135)
         for c in clients:
             print(c)
-        print("="*120)
+        print("="*135)
 
     def search_client(self):
         name = input("\nEnter client name to search: ").strip()
@@ -56,16 +56,16 @@ class App:
         if not clients:
             print(f"❌ No client found with name: {name}")
             return
-        print("\n" + "="*120)
+        print("\n" + "="*135)
         print(f"{'ID':<4} | {'Name':<20} | {'Email':<30} | {'Country':<15} | {'Platform':<15} | Added Date")
-        print("="*120)
+        print("="*135)
         for c in clients:
             print(c)
-        print("="*120)
+        print("="*135)
 
     def add_project(self):
         print("\n" + "="*70)
-        print("                    ADD NEW PROJECT")
+        print(f"{'ADD NEW PROJECT'.center(70)}")
         print("="*70)
         try:
             client_id = int(input("Client ID: "))
@@ -168,12 +168,12 @@ class App:
             print(f"❌ Error: {e}")
 
     def run(self):
-        print(f"\n{'='*75}")
-        print(f"          {APP_NAME.upper()}")
-        print(f"{'='*75}")
+        print(f"\n{'='*70}")
+        print(f"{APP_NAME.upper().center(70)}")
+        print(f"{'='*70}")
 
         while True:
-            print(f"\n{'='*60}")
+            print(f"\n{'='*70}")
             print("1.  Add Client")
             print("2.  View All Clients")
             print("3.  Search Client")
@@ -187,19 +187,19 @@ class App:
             print("11. Show Overdue Projects")
             print("12. Show Unpaid Projects")
             print("13. Exit")
-            print(f"{'='*60}")
+            print(f"{'='*70}")
 
             choice = input("\nEnter your choice (1-13): ").strip()
 
-            if choice == "1":   self.add_client()
-            elif choice == "2": self.view_all_clients()
-            elif choice == "3": self.search_client()
-            elif choice == "4": self.add_project()
-            elif choice == "5": self.view_all_projects()
-            elif choice == "6": self.update_project_status()
-            elif choice == "7": self.add_payment()
-            elif choice == "8": self.view_all_payments()
-            elif choice == "9": self.generate_invoice()
+            if   choice == "1" : self.add_client()
+            elif choice == "2" : self.view_all_clients()
+            elif choice == "3" : self.search_client()
+            elif choice == "4" : self.add_project()
+            elif choice == "5" : self.view_all_projects()
+            elif choice == "6" : self.update_project_status()
+            elif choice == "7" : self.add_payment()
+            elif choice == "8" : self.view_all_payments()
+            elif choice == "9" : self.generate_invoice()
             elif choice == "10": Analytics().summary()
             elif choice == "11":
                 print("\n--- Overdue Projects ---")
